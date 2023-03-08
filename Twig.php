@@ -104,22 +104,13 @@ class Twig extends \Slim\View
     /**
      * Creates new TwigEnvironment if it doesn't already exist, and returns it.
      *
-     * @return \Twig_Environment
+     * @return \Twig\Environment
      */
     public function getInstance()
     {
         if (!$this->parserInstance) {
-            /**
-             * Check if Twig_Autoloader class exists
-             * otherwise include it.
-             */
-            if (!class_exists('\Twig_Autoloader')) {
-                require_once $this->parserDirectory . '/Autoloader.php';
-            }
-
-            \Twig_Autoloader::register();
-            $loader = new \Twig_Loader_Filesystem($this->getTemplateDirs());
-            $this->parserInstance = new \Twig_Environment(
+            $loader = new \Twig\Loader\FilesystemLoader($this->getTemplateDirs());
+            $this->parserInstance = new \Twig\Environment(
                 $loader,
                 $this->parserOptions
             );

@@ -34,7 +34,7 @@ namespace Slim\Views;
 
 use Slim\Slim;
 
-class TwigExtension extends \Twig_Extension
+class TwigExtension extends \Twig\Extension
 {
     public function getName()
     {
@@ -44,10 +44,10 @@ class TwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('urlFor', array($this, 'urlFor')),
-            new \Twig_SimpleFunction('baseUrl', array($this, 'base')),
-            new \Twig_SimpleFunction('siteUrl', array($this, 'site')),
-            new \Twig_SimpleFunction('currentUrl', array($this, 'currentUrl')),
+            new \Twig\Function('urlFor', array($this, 'urlFor')),
+            new \Twig\Function('baseUrl', array($this, 'base')),
+            new \Twig\Function('siteUrl', array($this, 'site')),
+            new \Twig\Function('currentUrl', array($this, 'currentUrl')),
         );
     }
 
